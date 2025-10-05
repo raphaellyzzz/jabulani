@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2gfvmoeqnw8r"]
+[gd_scene load_steps=5 format=3 uid="uid://0k7bsgqcxxl7"]
 
-[ext_resource type="Script" uid="uid://jt4rr1fxhufr" path="res://scenes/powerup.gd" id="1_7bos4"]
+[ext_resource type="Script" uid="uid://7nm27xh7sqft" path="res://scripts/Coletaveis/Powerups/powerup_d_sp.gd" id="1_vlsrv"]
 
 [sub_resource type="Gradient" id="Gradient_7bos4"]
 
@@ -10,7 +10,7 @@ gradient = SubResource("Gradient_7bos4")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u7yqs"]
 
 [node name="Powerup x" type="Node2D"]
-script = ExtResource("1_7bos4")
+script = ExtResource("1_vlsrv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 4.712389

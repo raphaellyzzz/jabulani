@@ -1,0 +1,135 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmoljl2nm2vvg"]
+
+[ext_resource type="Script" uid="uid://3spmaudistnp" path="res://scenes/UI/hud_manager.gd" id="1_5fyfn"]
+
+[sub_resource type="Gradient" id="Gradient_tandv"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5fyfn"]
+gradient = SubResource("Gradient_tandv")
+width = 20
+height = 20
+
+[sub_resource type="Gradient" id="Gradient_7n4fj"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vphgt"]
+gradient = SubResource("Gradient_7n4fj")
+width = 10
+height = 20
+
+[node name="Hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5fyfn")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="moedas_coluna" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="moedas_icon" type="TextureRect" parent="MarginContainer/moedas_coluna"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("GradientTexture2D_5fyfn")
+
+[node name="contador_moedas" type="Label" parent="MarginContainer/moedas_coluna"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "0"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="pontos_coluna" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="pontuacao" type="Label" parent="MarginContainer/pontos_coluna"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "pontuação :"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="contador_pontos" type="Label" parent="MarginContainer/pontos_coluna"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "0000"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="status_coluna" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="vidas_icon" type="TextureRect" parent="MarginContainer/status_coluna"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("GradientTexture2D_5fyfn")
+
+[node name="separador" type="Label" parent="MarginContainer/status_coluna"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "X"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="vidas" type="Label" parent="MarginContainer/status_coluna"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "3"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="poder_coluna" type="HBoxContainer" parent="MarginContainer/status_coluna"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="barra_poder" type="TextureRect" parent="MarginContainer/status_coluna/poder_coluna"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_vphgt")
+
+[node name="barra_poder2" type="TextureRect" parent="MarginContainer/status_coluna/poder_coluna"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_vphgt")
+
+[node name="barra_poder3" type="TextureRect" parent="MarginContainer/status_coluna/poder_coluna"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_vphgt")
+
+[node name="barra_poder4" type="TextureRect" parent="MarginContainer/status_coluna/poder_coluna"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_vphgt")
+
+[node name="barra_poder5" type="TextureRect" parent="MarginContainer/status_coluna/poder_coluna"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_vphgt")
