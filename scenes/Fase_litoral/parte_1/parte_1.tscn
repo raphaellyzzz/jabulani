@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=4 uid="uid://b6tv6bdyiw4pm"]
 
 [ext_resource type="PackedScene" uid="uid://b0g6fk3yxsmp8" path="res://scenes/player.tscn" id="1_d5xje"]
-[ext_resource type="Script" uid="uid://d4kxuo4awnrgi" path="res://scripts/litoral_parte_1.gd" id="1_yqee5"]
+[ext_resource type="Script" uid="uid://d4kxuo4awnrgi" path="res://scripts/fase_litoral/litoral_parte_1.gd" id="1_yqee5"]
 [ext_resource type="Texture2D" uid="uid://3is82yhqubma" path="res://assets/Tileset mapa/mapa litoral.png" id="2_6w2tr"]
 [ext_resource type="AudioStream" uid="uid://cjxbksxfa2frf" path="res://assets/soundtracks/litoral/musica_p1.mp3" id="5_42pse"]
 
@@ -152,10 +152,6 @@ pattern_0 = SubResource("TileMapPattern_42pse")
 [node name="Parte1" type="Node2D"]
 script = ExtResource("1_yqee5")
 
-[node name="Player" parent="." instance=ExtResource("1_d5xje")]
-position = Vector2(173, 6662)
-collision_mask = 2
-
 [node name="esquerda" type="StaticBody2D" parent="."]
 position = Vector2(-159, 0)
 collision_layer = 2
@@ -181,4 +177,7 @@ tile_set = SubResource("TileSet_a7kvc")
 [node name="background_p1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_42pse")
 autoplay = true
-parameters/looping = false
+parameters/looping = true
+
+[node name="player" parent="." instance=ExtResource("1_d5xje")]
+position = Vector2(132.83057, 6605.054)

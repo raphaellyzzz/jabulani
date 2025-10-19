@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://kwuyaoxauotc"]
+[gd_scene load_steps=15 format=3 uid="uid://kwuyaoxauotc"]
 
 [ext_resource type="Texture2D" uid="uid://yojo5cvx47b" path="res://assets/inimigos-comuns/Agua_viva2/idle.png" id="1_nutgf"]
 [ext_resource type="Texture2D" uid="uid://cw0dw68ckw36i" path="res://assets/inimigos-comuns/Agua_viva2/Dead.png" id="2_bhj1h"]
+[ext_resource type="PackedScene" uid="uid://cj43ru45hclm3" path="res://scenes/Fase_litoral/inimigos/hitbox.tscn" id="3_liqim"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6b8r5"]
-radius = 94.36631
+radius = 23.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bhj1h"]
 atlas = ExtResource("1_nutgf")
@@ -84,13 +85,25 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="agua_viva" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vmt2w"]
+radius = 34.0
+height = 68.0
+
+[node name="agua_viva" type="CharacterBody2D" groups=["inimigos"]]
 collision_layer = 4
-collision_mask = 0
+collision_mask = 33
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_6b8r5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_nutgf")
 animation = &"morte"
+
+[node name="Hitbox" parent="." instance=ExtResource("3_liqim")]
+collision_mask = 33
+
+[node name="colliosion" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CapsuleShape2D_vmt2w")
+debug_color = Color(0.8958556, 0.22780389, 0.564401, 0.41960785)
