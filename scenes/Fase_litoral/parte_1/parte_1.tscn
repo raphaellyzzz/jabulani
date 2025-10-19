@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://b6tv6bdyiw4pm"]
+[gd_scene load_steps=13 format=4 uid="uid://b6tv6bdyiw4pm"]
 
 [ext_resource type="PackedScene" uid="uid://b0g6fk3yxsmp8" path="res://scenes/player.tscn" id="1_d5xje"]
 [ext_resource type="Script" uid="uid://d4kxuo4awnrgi" path="res://scripts/fase_litoral/litoral_parte_1.gd" id="1_yqee5"]
 [ext_resource type="Texture2D" uid="uid://3is82yhqubma" path="res://assets/Tileset mapa/mapa litoral.png" id="2_6w2tr"]
 [ext_resource type="AudioStream" uid="uid://cjxbksxfa2frf" path="res://assets/soundtracks/litoral/musica_p1.mp3" id="5_42pse"]
+[ext_resource type="PackedScene" uid="uid://kwuyaoxauotc" path="res://scenes/Fase_litoral/inimigos/agua_viva.tscn" id="5_yqee5"]
+[ext_resource type="PackedScene" uid="uid://cdg77iws7oyfl" path="res://scenes/Coletaveis/moedas.tscn" id="6_42pse"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_77fcj"]
 size = Vector2(362, 11614)
@@ -149,6 +151,9 @@ physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_1wjb7")
 pattern_0 = SubResource("TileMapPattern_42pse")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_42pse"]
+size = Vector2(6155, 11541)
+
 [node name="Parte1" type="Node2D"]
 script = ExtResource("1_yqee5")
 
@@ -179,5 +184,22 @@ stream = ExtResource("5_42pse")
 autoplay = true
 parameters/looping = true
 
+[node name="agua_viva" parent="." instance=ExtResource("5_yqee5")]
+position = Vector2(542.70264, 6710.202)
+
+[node name="gravity" type="Area2D" parent="."]
+visible = false
+position = Vector2(2176, 1390)
+gravity_space_override = 3
+gravity = 500.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="gravity"]
+position = Vector2(356.5, 9.5)
+shape = SubResource("RectangleShape2D_42pse")
+debug_color = Color(0.38255185, 0.49931693, 0.9285554, 0.41960785)
+
 [node name="player" parent="." instance=ExtResource("1_d5xje")]
-position = Vector2(132.83057, 6605.054)
+position = Vector2(132.83606, 6643.823)
+
+[node name="moeda" parent="." instance=ExtResource("6_42pse")]
+position = Vector2(902.25745, 6726.0864)

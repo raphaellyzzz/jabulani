@@ -3,7 +3,12 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-var pulo := false
+var knockback_vector := Vector2.ZERO
+var direction
+var is_hurted := false
+@export var player_life := 6
+@onready var ray_d := $RayCast2D_D as RayCast2D
+@onready var ray_e := $RayCast2D_E as RayCast2D
 @onready var anim := $anim as AnimatedSprite2D
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -11,24 +16,49 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		pulo = true
-	elif is_on_floor():
-		pulo = false
-	var direction := Input.get_axis("ui_left", "ui_right")
+	direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
 		anim.scale.x = direction
-		if !pulo:
-			anim.play("correndo")  
-	elif pulo:
-		anim.play("salto")  
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		anim.play("idle-pre-ataque")
-
+		if knockback_vector != Vector2.ZERO:
+			velocity = knockback_vector
+	_set_state()
 	move_and_slide()
 
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("inimigos"):
-		anim.play("hitado")
+		pass
+	if player_life < 0:
+		queue_free()
+	else:
+		if ray_d.is_colliding():
+			take_damage(Vector2(-1200, -1200))
+		elif ray_e.is_colliding():
+			take_damage(Vector2(1200, -1200))
+func take_damage(knockback_force := Vector2.ZERO, duration := 0.25):
+	player_life -= 1
+	if knockback_force != Vector2.ZERO:
+		knockback_vector = knockback_force
+		var knockback_tween := get_tree().create_tween()
+		knockback_tween.parallel().tween_property(self, "knockback_vector", Vector2.ZERO, duration)
+		anim.modulate = Color(1,0,0,1)
+		knockback_tween.parallel().tween_property(anim, "modulate", Color(1,1,1,1), duration)
+	is_hurted = true
+	await get_tree().create_timer(.3).timeout
+	is_hurted = false
+		
+func _set_state():
+	var state = "idle_pre_ataque"
+	if !is_on_floor():
+		state = "salto"
+	elif direction != 0 and is_on_floor():
+		state = "correndo"
+	if is_hurted:
+		state = "hitado"
+	if anim.name != state:
+		anim.play(state)
+	
