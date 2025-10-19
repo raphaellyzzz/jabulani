@@ -5,13 +5,13 @@ var pilarP1 = 0
 var pilarP2 = 0
 
 func _ready() -> void:
-	pass 
+	pass
 
 func _process(_delta: float) -> void:
 	pass
-	
 
 func _on_timer_timeout() -> void:
+	Global.olhos = true
 	pilar.shuffle()
 	pilarP1 = pilar[0]
 	pilarP2 = pilar[1]
@@ -28,6 +28,7 @@ func _on_timer_timeout() -> void:
 		$"../pilar3".start_flash()
 		await get_tree().create_timer(2.0).timeout
 		$"../pilar3".move_platform()
+	Global.olhos = false
 	await get_tree().create_timer(3.0).timeout
 	_on_timer_timeout()
 	

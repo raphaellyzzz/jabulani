@@ -1,3 +1,4 @@
 extends Node
-var moedas := 0
+var olhos := false
 var pontos := 0
+var adm := false

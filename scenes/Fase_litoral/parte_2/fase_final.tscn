@@ -30,10 +30,11 @@ move_horizontal = false
 position = Vector2(-1188, 0)
 
 [node name="cabeca_adm" parent="." instance=ExtResource("5_17pks")]
-position = Vector2(-260, -58)
+process_mode = 4
+position = Vector2(-174, 39)
 
 [node name="atira" parent="." instance=ExtResource("6_lsimd")]
-position = Vector2(-112, 17)
+position = Vector2(-261, -46)
 
 [node name="pilar" parent="." instance=ExtResource("4_1ps3k")]
 position = Vector2(-811, 387)

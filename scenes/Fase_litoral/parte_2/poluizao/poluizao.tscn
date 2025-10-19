@@ -1,6 +1,7 @@
-[gd_scene load_steps=39 format=3 uid="uid://buhegnsvwuv3f"]
+[gd_scene load_steps=40 format=3 uid="uid://buhegnsvwuv3f"]
 
 [ext_resource type="Texture2D" uid="uid://cf31a2x2vb0dk" path="res://assets/Poluizao/primeiro ataque/Primeiro ataque.png" id="1_nqy25"]
+[ext_resource type="Script" uid="uid://d3dfwics3owvm" path="res://scripts/poluizao.gd" id="1_syqv4"]
 [ext_resource type="Texture2D" uid="uid://dlf5v2yt6pkf" path="res://assets/Poluizao/Segundo ataque/Segundo ataque.png" id="2_syqv4"]
 [ext_resource type="Texture2D" uid="uid://bj50xhe52byjr" path="res://assets/Poluizao/Morte da cabeça que atira/idle_2.png" id="3_qnwj6"]
 [ext_resource type="Texture2D" uid="uid://v6bvx5xmcrul" path="res://assets/Poluizao/Morte da cabeça que atira/cabeça que atira morrendo.png" id="4_kyw0k"]
@@ -285,10 +286,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n7628"]
 
 [node name="poluizao" type="CharacterBody2D"]
+script = ExtResource("1_syqv4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4t8cq")
-animation = &"idle"
+animation = &"ataque_pilar"
+frame = 4
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_n7628")

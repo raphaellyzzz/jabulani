@@ -68,6 +68,8 @@ ui_down={
 2d_physics/layer_2="terreno"
 2d_physics/layer_3="inimigos"
 2d_physics/layer_4="itens"
+2d_physics/layer_5="hitbox"
+2d_physics/layer_6="hurtbox"
 
 [rendering]
 
