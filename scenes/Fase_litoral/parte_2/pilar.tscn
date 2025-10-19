@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bb06kfdajvr6i"]
+
+[ext_resource type="Script" uid="uid://cyofrfevq03bl" path="res://scripts/plataforms/pilar.gd" id="1_35uob"]
+
+[sub_resource type="Gradient" id="Gradient_35uob"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6tume"]
+gradient = SubResource("Gradient_35uob")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4re3"]
+size = Vector2(179, 797)
+
+[node name="pilar" type="Node2D"]
+script = ExtResource("1_35uob")
+move_speed = 100.0
+distance = 600
+move_horizontal = false
+flash_duration = 7.0
+
+[node name="plataform" type="AnimatableBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="plataform"]
+position = Vector2(3.159046e-05, 352.5)
+scale = Vector2(2.843751, 12.421875)
+texture = SubResource("GradientTexture2D_6tume")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataform"]
+position = Vector2(-0.5, 353.5)
+shape = SubResource("RectangleShape2D_k4re3")
+one_way_collision = true

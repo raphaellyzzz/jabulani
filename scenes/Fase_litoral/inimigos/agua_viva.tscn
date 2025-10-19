@@ -1,0 +1,96 @@
+[gd_scene load_steps=13 format=3 uid="uid://kwuyaoxauotc"]
+
+[ext_resource type="Texture2D" uid="uid://yojo5cvx47b" path="res://assets/inimigos-comuns/Agua_viva2/idle.png" id="1_nutgf"]
+[ext_resource type="Texture2D" uid="uid://cw0dw68ckw36i" path="res://assets/inimigos-comuns/Agua_viva2/Dead.png" id="2_bhj1h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6b8r5"]
+radius = 94.36631
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhj1h"]
+atlas = ExtResource("1_nutgf")
+region = Rect2(0, 0, 165, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_liqim"]
+atlas = ExtResource("1_nutgf")
+region = Rect2(165, 0, 165, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmt2w"]
+atlas = ExtResource("1_nutgf")
+region = Rect2(330, 0, 165, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g15ck"]
+atlas = ExtResource("2_bhj1h")
+region = Rect2(0, 0, 167, 168)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gtjo"]
+atlas = ExtResource("2_bhj1h")
+region = Rect2(167, 0, 167, 168)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oltmf"]
+atlas = ExtResource("2_bhj1h")
+region = Rect2(334, 0, 167, 168)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wi6py"]
+atlas = ExtResource("2_bhj1h")
+region = Rect2(501, 0, 167, 168)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1rv0"]
+atlas = ExtResource("2_bhj1h")
+region = Rect2(668, 0, 167, 168)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nutgf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhj1h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_liqim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmt2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmt2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_liqim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhj1h")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g15ck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gtjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oltmf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wi6py")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1rv0")
+}],
+"loop": false,
+"name": &"morte",
+"speed": 5.0
+}]
+
+[node name="agua_viva" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6b8r5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nutgf")
+animation = &"morte"

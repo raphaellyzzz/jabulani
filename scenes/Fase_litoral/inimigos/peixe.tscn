@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://defetn2tolysf"]
+
+[ext_resource type="Texture2D" uid="uid://ctkps8kal37wc" path="res://assets/inimigos-comuns/Peixe_2/nadando.png" id="1_ts2ed"]
+[ext_resource type="Texture2D" uid="uid://dwqfsckwlx5j8" path="res://assets/inimigos-comuns/Peixe_2/morto.png" id="2_gxp8v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nnoe0"]
+radius = 68.117546
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxp8v"]
+atlas = ExtResource("1_ts2ed")
+region = Rect2(0, 0, 147, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vicrg"]
+atlas = ExtResource("1_ts2ed")
+region = Rect2(147, 0, 147, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xny7j"]
+atlas = ExtResource("1_ts2ed")
+region = Rect2(292, 0, 145, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlr55"]
+atlas = ExtResource("2_gxp8v")
+region = Rect2(0, 0, 156, 169)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85fj6"]
+atlas = ExtResource("2_gxp8v")
+region = Rect2(168, 0, 113, 169)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dbtw"]
+atlas = ExtResource("2_gxp8v")
+region = Rect2(291, 0, 146, 169)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ts2ed"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxp8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vicrg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xny7j")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlr55")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85fj6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dbtw")
+}],
+"loop": false,
+"name": &"morte",
+"speed": 2.0
+}]
+
+[node name="peixe" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nnoe0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ts2ed")
+animation = &"morte"

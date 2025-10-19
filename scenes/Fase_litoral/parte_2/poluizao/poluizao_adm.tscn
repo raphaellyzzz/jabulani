@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://1dxj8pi1rv1n"]
+
+[ext_resource type="Script" uid="uid://bi5mrkdfbj3b3" path="res://scripts/poluizao_adm.gd" id="1_xc23v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vluwm"]
+size = Vector2(203, 161.5)
+
+[node name="cabeca_adm" type="CharacterBody2D"]
+script = ExtResource("1_xc23v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8.75)
+shape = SubResource("RectangleShape2D_vluwm")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
