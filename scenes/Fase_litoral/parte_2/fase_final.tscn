@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://e4hpw57s0vlu"]
+[gd_scene load_steps=7 format=3 uid="uid://e4hpw57s0vlu"]
 
 [ext_resource type="PackedScene" uid="uid://buhegnsvwuv3f" path="res://scenes/Fase_litoral/parte_2/poluizao/poluizao.tscn" id="1_iejbd"]
 [ext_resource type="PackedScene" uid="uid://dscx8hbalv6vx" path="res://scenes/Fase_litoral/plataformas/plataform_movel_d.tscn" id="2_d5b30"]
 [ext_resource type="PackedScene" uid="uid://b0g6fk3yxsmp8" path="res://scenes/player.tscn" id="3_1qmov"]
 [ext_resource type="PackedScene" uid="uid://bb06kfdajvr6i" path="res://scenes/Fase_litoral/parte_2/pilar.tscn" id="4_1ps3k"]
 [ext_resource type="PackedScene" uid="uid://1dxj8pi1rv1n" path="res://scenes/Fase_litoral/parte_2/poluizao/poluizao_adm.tscn" id="5_17pks"]
-[ext_resource type="Script" uid="uid://bi5mrkdfbj3b3" path="res://scripts/fase_litoral/Poluizao/poluizao_adm.gd" id="5_gden0"]
 [ext_resource type="PackedScene" uid="uid://bqpavlnkcsfxl" path="res://scenes/Fase_litoral/parte_2/poluizao/atira_polu.tscn" id="6_lsimd"]
 
 [node name="FaseFinal" type="Node2D"]
@@ -27,25 +26,27 @@ position = Vector2(-422, 257)
 move_speed = 6.0
 move_horizontal = false
 
-[node name="Player" parent="." instance=ExtResource("3_1qmov")]
-position = Vector2(-1188, 0)
-
 [node name="cabeca_adm" parent="." instance=ExtResource("5_17pks")]
 process_mode = 4
 position = Vector2(-174, 39)
-script = ExtResource("5_gden0")
 
 [node name="atira" parent="." instance=ExtResource("6_lsimd")]
 position = Vector2(-261, -46)
 
 [node name="pilar" parent="." instance=ExtResource("4_1ps3k")]
 position = Vector2(-811, 387)
+move_speed = 150.0
 flash_duration = 6.0
 
 [node name="pilar2" parent="." instance=ExtResource("4_1ps3k")]
 position = Vector2(-1185, 373)
+move_speed = 150.0
 flash_duration = 6.0
 
 [node name="pilar3" parent="." instance=ExtResource("4_1ps3k")]
 position = Vector2(-426, 387)
+move_speed = 150.0
 flash_duration = 6.0
+
+[node name="player" parent="." instance=ExtResource("3_1qmov")]
+position = Vector2(-1183, 75)

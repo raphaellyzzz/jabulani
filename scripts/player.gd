@@ -27,7 +27,10 @@ func _physics_process(delta: float) -> void:
 			velocity = knockback_vector
 	_set_state()
 	move_and_slide()
-
+	for platforms in get_slide_collision_count():
+		var collision = get_slide_collision(platforms)
+		if collision.get_collider().has_method("has_collided_with"):
+			collision.get_collider().has_collided_with(collision, self)
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("inimigos"):
@@ -52,7 +55,7 @@ func take_damage(knockback_force := Vector2.ZERO, duration := 0.25):
 	is_hurted = false
 		
 func _set_state():
-	var state = "idle_pre_ataque"
+	var state = "idle-pre-ataque"
 	if !is_on_floor():
 		state = "salto"
 	elif direction != 0 and is_on_floor():

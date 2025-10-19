@@ -7,8 +7,8 @@ func _ready() -> void:
 	
 func _process(_delta: float) -> void:
 	#ataque pilar
-		#Global.adm = true
-		#Global.olhos = true
+	Global.adm = true
+	Global.olhos = true
 	_anim.play("idle")
 	if Global.olhos and Global.adm:
 		$"../cabeca_adm".process_mode = Node.PROCESS_MODE_INHERIT

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://b0g6fk3yxsmp8"]
+[gd_scene load_steps=39 format=3 uid="uid://b0g6fk3yxsmp8"]
 
 [ext_resource type="Script" uid="uid://uykjgak5xo0a" path="res://scripts/player.gd" id="1_fjrip"]
 [ext_resource type="Texture2D" uid="uid://cix8eoeiylwjy" path="res://assets/Jabulane/Crouch/Abaixar.png" id="2_smehm"]
@@ -7,9 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://dk5qvy3n6jduf" path="res://assets/Jabulane/Idle/idle.png" id="5_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://2ng0rrwq7r4l" path="res://assets/Jabulane/Hit and Dead/Death.png" id="6_3v2ag"]
 [ext_resource type="Texture2D" uid="uid://cd6ngpyh3kjst" path="res://assets/Jabulane/Jump/Pulo.png" id="7_jej6c"]
+[ext_resource type="Script" uid="uid://crll6w051fm86" path="res://scripts/fase_litoral/hud_manager.gd" id="8_smehm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8vuu"]
-size = Vector2(178, 148)
+size = Vector2(178, 156)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f1ej7"]
 atlas = ExtResource("2_smehm")
@@ -228,14 +229,19 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fjrip"]
-size = Vector2(211, 114)
+size = Vector2(211, 193)
+
+[sub_resource type="Gradient" id="Gradient_fjrip"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_smehm"]
+gradient = SubResource("Gradient_fjrip")
 
 [node name="player" type="CharacterBody2D"]
 collision_mask = 30
 script = ExtResource("1_fjrip")
 
 [node name="collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 26)
+position = Vector2(0, 28)
 shape = SubResource("RectangleShape2D_u8vuu")
 
 [node name="anim" type="AnimatedSprite2D" parent="."]
@@ -254,17 +260,95 @@ collision_layer = 32
 collision_mask = 20
 
 [node name="collision" type="CollisionShape2D" parent="hurtbox"]
-position = Vector2(1.5, -5)
+position = Vector2(2, 16)
 shape = SubResource("RectangleShape2D_fjrip")
 
 [node name="RayCast2D_D" type="RayCast2D" parent="."]
-position = Vector2(90, 0)
-target_position = Vector2(17, 0)
-collision_mask = 4
+position = Vector2(12, 4)
+scale = Vector2(180, 180)
+target_position = Vector2(1.6388888, -0.027777778)
+collision_mask = 20
 
 [node name="RayCast2D_E" type="RayCast2D" parent="."]
-position = Vector2(-90, 0)
-target_position = Vector2(-17, 0)
-collision_mask = 4
+position = Vector2(21.999996, 19.000002)
+scale = Vector2(150, 150)
+target_position = Vector2(-2.2533333, -0.06000001)
+collision_mask = 20
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchor_left = -0.7161458
+anchor_top = -0.70679015
+anchor_right = 0.7144097
+anchor_bottom = 0.71450615
+offset_top = 3.0517578e-05
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("8_smehm")
+metadata/_edit_use_anchors_ = true
+
+[node name="container" type="MarginContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -41.0
+offset_top = 18.0
+offset_right = -41.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 5
+
+[node name="vidas" type="HBoxContainer" parent="CanvasLayer/Control/container"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="vidas_icon6" type="TextureRect" parent="CanvasLayer/Control/container/vidas"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_smehm")
+
+[node name="vidas_icon5" type="TextureRect" parent="CanvasLayer/Control/container/vidas"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_smehm")
+
+[node name="vidas_icon3" type="TextureRect" parent="CanvasLayer/Control/container/vidas"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_smehm")
+
+[node name="vidas_icon4" type="TextureRect" parent="CanvasLayer/Control/container/vidas"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_smehm")
+
+[node name="vidas_icon2" type="TextureRect" parent="CanvasLayer/Control/container/vidas"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_smehm")
+
+[node name="vidas_icon" type="TextureRect" parent="CanvasLayer/Control/container/vidas"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_smehm")
+
+[node name="pontuacao_conteiner" type="HBoxContainer" parent="CanvasLayer/Control/container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="pontuacao" type="Label" parent="CanvasLayer/Control/container/pontuacao_conteiner"]
+layout_mode = 2
+theme_override_constants/outline_size = 8
+text = "Pontuação :"
+
+[node name="pontos" type="Label" parent="CanvasLayer/Control/container/pontuacao_conteiner"]
+layout_mode = 2
+theme_override_constants/outline_size = 8
+text = "0000"
 
 [connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
