@@ -49,4 +49,4 @@ move_speed = 150.0
 flash_duration = 6.0
 
 [node name="player" parent="." instance=ExtResource("3_1qmov")]
-position = Vector2(-1183, 75)
+position = Vector2(-1189, -7)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://b6tv6bdyiw4pm"]
+[gd_scene load_steps=15 format=4 uid="uid://b6tv6bdyiw4pm"]
 
 [ext_resource type="PackedScene" uid="uid://b0g6fk3yxsmp8" path="res://scenes/player.tscn" id="1_d5xje"]
 [ext_resource type="Script" uid="uid://d4kxuo4awnrgi" path="res://scripts/fase_litoral/litoral_parte_1.gd" id="1_yqee5"]
@@ -6,7 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://cjxbksxfa2frf" path="res://assets/soundtracks/litoral/musica_p1.mp3" id="5_42pse"]
 [ext_resource type="PackedScene" uid="uid://c8rly5yewdvax" path="res://scenes/Fase_litoral/plataformas/plataforma.tscn" id="5_qfdyi"]
 [ext_resource type="PackedScene" uid="uid://bf7u7sm6g1pyo" path="res://scenes/Fase_litoral/plataformas/plataforma_q.tscn" id="5_yqee5"]
-[ext_resource type="PackedScene" uid="uid://defetn2tolysf" path="res://scenes/Fase_litoral/inimigos/peixe.tscn" id="6_1wjb7"]
 [ext_resource type="PackedScene" uid="uid://ecryo2vr5p7k" path="res://scenes/Fase_litoral/inimigos/agua_viva_path.tscn" id="6_42pse"]
 [ext_resource type="PackedScene" uid="uid://xnslvs1w3kgp" path="res://scenes/Fase_litoral/plataformas/plataform_movel_e.tscn" id="9_byxn1"]
 
@@ -213,9 +212,6 @@ position = Vector2(1666, 6301)
 
 [node name="AguaVivaPath" parent="." instance=ExtResource("6_42pse")]
 position = Vector2(1476, 6447)
-
-[node name="peixe" parent="." instance=ExtResource("6_1wjb7")]
-position = Vector2(827, 6706)
 
 [node name="plataform_movel_E" parent="." instance=ExtResource("9_byxn1")]
 position = Vector2(1333, 6701)
