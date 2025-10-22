@@ -37,8 +37,8 @@ func _physics_process(delta: float) -> void:
 			collision.get_collider().has_collided_with(collision, self)
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
-	if body.is_in_group("inimigos"):
-		pass
+	if body.is_in_group("pilar"):
+		take_damage(Vector2(0, -5000))
 	if player_life < 0:
 		queue_free()
 	else:
@@ -46,12 +46,15 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 			take_damage(Vector2(-1200, -1200))
 		elif ray_e.is_colliding():
 			take_damage(Vector2(1200, -1200))
-			
+		elif $RayCast2D_B.is_colliding() and !Global.boss:
+			take_damage(Vector2(0, -1200))
+		elif $RayCast2D_C.is_colliding():
+			take_damage(Vector2(1200, -1200))
 func ataque():
 	var porradao = $ataque.get_overlapping_areas()
 	for area in porradao:
 		var parent = area.get_parent()
-		print(parent.name)
+		parent.vida -= 1
 	atacando = true
 	anim.play("ataque")
 func take_damage(knockback_force := Vector2.ZERO, duration := 0.25):

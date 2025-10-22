@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
-
+var vida = 2
 const SPEED = 300.0
 var direction := -1
-
+func _process(_delta: float) -> void:
+	if vida == 0:
+		queue_free()
 func _physics_process(_delta: float) -> void:
 	velocity.x = direction * SPEED
 

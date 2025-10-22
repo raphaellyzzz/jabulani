@@ -1,10 +1,13 @@
 extends CharacterBody2D
 
-
+var vida = 2
 const SPEED = 0.0
 var direction := -1
 @onready var wall_detector := $wall_detector as RayCast2D
 @onready var anim := $AnimatedSprite2D as AnimatedSprite2D
+func _process(_delta: float) -> void:
+	if vida == 0:
+		queue_free()
 func _physics_process(_delta: float) -> void:
 	if wall_detector.is_colliding():
 		direction *= -1

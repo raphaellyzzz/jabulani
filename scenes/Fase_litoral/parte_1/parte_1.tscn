@@ -158,7 +158,6 @@ pattern_0 = SubResource("TileMapPattern_42pse")
 size = Vector2(6155, 11541)
 
 [node name="Parte1" type="Node2D"]
-position = Vector2(3, 9)
 script = ExtResource("1_yqee5")
 
 [node name="esquerda" type="StaticBody2D" parent="."]

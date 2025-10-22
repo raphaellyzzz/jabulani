@@ -48,7 +48,6 @@ _data = {
 [node name="AguaVivaPath" type="Node2D"]
 
 [node name="agua_viva" parent="." instance=ExtResource("1_oture")]
-position = Vector2(239.8368, -2.5245976)
 scale = Vector2(0.9359649, 0.7791974)
 
 [node name="Path2D" type="Path2D" parent="."]

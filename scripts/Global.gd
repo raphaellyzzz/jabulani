@@ -3,3 +3,4 @@ var olhos := false
 var pontos := 0
 var adm := false
 var boss := false
+var morte_adm := false
