@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://buhegnsvwuv3f"]
+[gd_scene load_steps=41 format=3 uid="uid://buhegnsvwuv3f"]
 
 [ext_resource type="Texture2D" uid="uid://cf31a2x2vb0dk" path="res://assets/Poluizao/primeiro ataque/Primeiro ataque.png" id="1_nqy25"]
 [ext_resource type="Script" uid="uid://d3dfwics3owvm" path="res://scripts/fase_litoral/Poluizao/poluizao.gd" id="1_syqv4"]
@@ -40,9 +40,13 @@ region = Rect2(1487, 0, 743, 776)
 atlas = ExtResource("2_syqv4")
 region = Rect2(2242, 0, 743, 776)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_icm21"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_syqv4"]
 atlas = ExtResource("2_syqv4")
-region = Rect2(2982, 0, 735, 776)
+region = Rect2(2257, 0, 728, 776)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnwj6"]
+atlas = ExtResource("2_syqv4")
+region = Rect2(2985, 0, 728, 776)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_714h5"]
 atlas = ExtResource("1_nqy25")
@@ -173,10 +177,10 @@ animations = [{
 "texture": SubResource("AtlasTexture_hyne0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_icm21")
+"texture": SubResource("AtlasTexture_syqv4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_icm21")
+"texture": SubResource("AtlasTexture_qnwj6")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hyne0")
@@ -290,8 +294,9 @@ script = ExtResource("1_syqv4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4t8cq")
-animation = &"morte_adm"
+animation = &"ataque_pilar"
 autoplay = "idle"
+frame = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_n7628")
