@@ -10,6 +10,11 @@ var is_hurted := false
 @onready var ray_d := $RayCast2D_D as RayCast2D
 @onready var ray_e := $RayCast2D_E as RayCast2D
 @onready var anim := $anim as AnimatedSprite2D
+@export var atacando := false
+@export var agachado := true
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("ui_accept"):
+		ataque()
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -22,7 +27,6 @@ func _physics_process(delta: float) -> void:
 		anim.scale.x = direction
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		anim.play("idle-pre-ataque")
 		if knockback_vector != Vector2.ZERO:
 			velocity = knockback_vector
 	_set_state()
@@ -42,6 +46,14 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 			take_damage(Vector2(-1200, -1200))
 		elif ray_e.is_colliding():
 			take_damage(Vector2(1200, -1200))
+			
+func ataque():
+	var porradao = $ataque.get_overlapping_areas()
+	for area in porradao:
+		var parent = area.get_parent()
+		print(parent.name)
+	atacando = true
+	anim.play("ataque")
 func take_damage(knockback_force := Vector2.ZERO, duration := 0.25):
 	player_life -= 1
 	if knockback_force != Vector2.ZERO:
@@ -55,13 +67,19 @@ func take_damage(knockback_force := Vector2.ZERO, duration := 0.25):
 	is_hurted = false
 		
 func _set_state():
-	var state = "idle-pre-ataque"
-	if !is_on_floor():
-		state = "salto"
-	elif direction != 0 and is_on_floor():
-		state = "correndo"
-	if is_hurted:
-		state = "hitado"
-	if anim.name != state:
-		anim.play(state)
+	if !atacando:
+		var state = "idle-pre-ataque"
+		if Global.boss:
+			state = "idle-pos-ataque"
+		if !is_on_floor():
+			state = "salto"
+		elif direction != 0 and is_on_floor():
+			state = "correndo"
+		if is_hurted:
+			state = "hitado"
+		if anim.name != state:
+			anim.play(state)
+
+func _on_anim_animation_finished() -> void:
+	atacando = false
 	

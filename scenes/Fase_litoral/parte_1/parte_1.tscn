@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=4 uid="uid://b6tv6bdyiw4pm"]
+[gd_scene load_steps=16 format=4 uid="uid://b6tv6bdyiw4pm"]
 
 [ext_resource type="PackedScene" uid="uid://b0g6fk3yxsmp8" path="res://scenes/player.tscn" id="1_d5xje"]
 [ext_resource type="Script" uid="uid://d4kxuo4awnrgi" path="res://scripts/fase_litoral/litoral_parte_1.gd" id="1_yqee5"]
 [ext_resource type="Texture2D" uid="uid://3is82yhqubma" path="res://assets/Tileset mapa/mapa litoral.png" id="2_6w2tr"]
+[ext_resource type="PackedScene" uid="uid://defetn2tolysf" path="res://scenes/Fase_litoral/inimigos/peixe.tscn" id="4_qfdyi"]
 [ext_resource type="AudioStream" uid="uid://cjxbksxfa2frf" path="res://assets/soundtracks/litoral/musica_p1.mp3" id="5_42pse"]
 [ext_resource type="PackedScene" uid="uid://c8rly5yewdvax" path="res://scenes/Fase_litoral/plataformas/plataforma.tscn" id="5_qfdyi"]
 [ext_resource type="PackedScene" uid="uid://bf7u7sm6g1pyo" path="res://scenes/Fase_litoral/plataformas/plataforma_q.tscn" id="5_yqee5"]
@@ -187,9 +188,13 @@ stream = ExtResource("5_42pse")
 autoplay = true
 parameters/looping = true
 
+[node name="peixe" parent="." instance=ExtResource("4_qfdyi")]
+position = Vector2(634.3185, 6717.1978)
+
 [node name="gravity" type="Area2D" parent="."]
 visible = false
 position = Vector2(2176, 1390)
+monitorable = false
 gravity_space_override = 3
 gravity = 500.0
 

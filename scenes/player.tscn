@@ -1,8 +1,9 @@
-[gd_scene load_steps=39 format=3 uid="uid://b0g6fk3yxsmp8"]
+[gd_scene load_steps=48 format=3 uid="uid://b0g6fk3yxsmp8"]
 
 [ext_resource type="Script" uid="uid://uykjgak5xo0a" path="res://scripts/player.gd" id="1_fjrip"]
 [ext_resource type="Texture2D" uid="uid://cix8eoeiylwjy" path="res://assets/Jabulane/Crouch/Abaixar.png" id="2_smehm"]
 [ext_resource type="Texture2D" uid="uid://bgvhnwhmemq31" path="res://assets/Jabulane/Running/Running.png" id="3_ur7pv"]
+[ext_resource type="Texture2D" uid="uid://kkqphuprklax" path="res://assets/Jabulane/Ataque/Basic_Attack.png" id="4_ur7pv"]
 [ext_resource type="Texture2D" uid="uid://6afwj01jip6o" path="res://assets/Jabulane/Hit and Dead/hit_dead.png" id="4_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://dk5qvy3n6jduf" path="res://assets/Jabulane/Idle/idle.png" id="5_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://2ng0rrwq7r4l" path="res://assets/Jabulane/Hit and Dead/Death.png" id="6_3v2ag"]
@@ -15,7 +16,7 @@
 gradient = SubResource("Gradient_smehm")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8vuu"]
-size = Vector2(178, 156)
+size = Vector2(151, 151)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f1ej7"]
 atlas = ExtResource("2_smehm")
@@ -36,6 +37,34 @@ region = Rect2(190, 0, 126, 181)
 [sub_resource type="AtlasTexture" id="AtlasTexture_fulsm"]
 atlas = ExtResource("2_smehm")
 region = Rect2(0, 0, 136, 181)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4r1p"]
+atlas = ExtResource("4_ur7pv")
+region = Rect2(0, 0, 110, 232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
+atlas = ExtResource("4_ur7pv")
+region = Rect2(230, 0, 296, 232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v2ag"]
+atlas = ExtResource("4_ur7pv")
+region = Rect2(606, 0, 240, 232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jej6c"]
+atlas = ExtResource("4_ur7pv")
+region = Rect2(945, 0, 254, 232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hax0n"]
+atlas = ExtResource("4_ur7pv")
+region = Rect2(1300, 0, 219, 232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cs1tg"]
+atlas = ExtResource("4_ur7pv")
+region = Rect2(1602, 0, 110, 232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dvfe"]
+atlas = ExtResource("4_ur7pv")
+region = Rect2(1751, 0, 180, 232)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4r5pv"]
 atlas = ExtResource("3_ur7pv")
@@ -141,6 +170,32 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_y4r1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2wvv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3v2ag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jej6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hax0n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cs1tg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dvfe")
+}],
+"loop": false,
+"name": &"ataque",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_4r5pv")
 }, {
 "duration": 1.0,
@@ -234,14 +289,17 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fjrip"]
-size = Vector2(211, 193)
+size = Vector2(194, 176.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ur7pv"]
+size = Vector2(171.5, 159.5)
 
 [node name="player" type="CharacterBody2D"]
 collision_mask = 30
 script = ExtResource("1_fjrip")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-follow_viewport_enabled = true
+visible = false
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_direction = 1
@@ -316,12 +374,12 @@ theme_override_constants/outline_size = 8
 text = "0000"
 
 [node name="collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 28)
+position = Vector2(-3.5, 30.5)
 shape = SubResource("RectangleShape2D_u8vuu")
 
 [node name="anim" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2dvfe")
-animation = &"idle-pre-ataque"
+animation = &"agachar"
 flip_h = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -333,7 +391,7 @@ collision_layer = 32
 collision_mask = 20
 
 [node name="collision" type="CollisionShape2D" parent="hurtbox"]
-position = Vector2(2, 16)
+position = Vector2(-2, 24.25)
 shape = SubResource("RectangleShape2D_fjrip")
 
 [node name="RayCast2D_D" type="RayCast2D" parent="."]
@@ -348,4 +406,12 @@ scale = Vector2(150, 150)
 target_position = Vector2(-2.2533333, -0.06000001)
 collision_mask = 20
 
+[node name="ataque" type="Area2D" parent="."]
+collision_mask = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ataque"]
+position = Vector2(79, 12)
+shape = SubResource("RectangleShape2D_ur7pv")
+
+[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
 [connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
