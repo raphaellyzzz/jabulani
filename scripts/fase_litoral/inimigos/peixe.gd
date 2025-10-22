@@ -7,6 +7,8 @@ var direction := -1
 @onready var anim := $AnimatedSprite2D as AnimatedSprite2D
 func _process(_delta: float) -> void:
 	if vida == 0:
+		$AnimatedSprite2D.play("morte")
+		await get_tree().create_timer(1.5).timeout
 		queue_free()
 func _physics_process(_delta: float) -> void:
 	if wall_detector.is_colliding():

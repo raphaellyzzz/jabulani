@@ -101,7 +101,7 @@ shape = SubResource("RectangleShape2D_vmt2w")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_nutgf")
-animation = &"idle"
+animation = &"morte"
 autoplay = "idle"
 
 [node name="Hitbox" parent="." instance=ExtResource("3_liqim")]

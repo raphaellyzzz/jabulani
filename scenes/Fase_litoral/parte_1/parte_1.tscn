@@ -7,8 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://cjxbksxfa2frf" path="res://assets/soundtracks/litoral/musica_p1.mp3" id="5_42pse"]
 [ext_resource type="PackedScene" uid="uid://c8rly5yewdvax" path="res://scenes/Fase_litoral/plataformas/plataforma.tscn" id="5_qfdyi"]
 [ext_resource type="PackedScene" uid="uid://bf7u7sm6g1pyo" path="res://scenes/Fase_litoral/plataformas/plataforma_q.tscn" id="5_yqee5"]
-[ext_resource type="PackedScene" uid="uid://ecryo2vr5p7k" path="res://scenes/Fase_litoral/inimigos/agua_viva_path.tscn" id="6_42pse"]
 [ext_resource type="PackedScene" uid="uid://xnslvs1w3kgp" path="res://scenes/Fase_litoral/plataformas/plataform_movel_e.tscn" id="9_byxn1"]
+[ext_resource type="PackedScene" uid="uid://kwuyaoxauotc" path="res://scenes/Fase_litoral/inimigos/agua_viva.tscn" id="9_qfdyi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_77fcj"]
 size = Vector2(362, 11614)
@@ -214,11 +214,11 @@ position = Vector2(1977, 6161)
 [node name="plataform2" parent="." instance=ExtResource("5_yqee5")]
 position = Vector2(1666, 6301)
 
-[node name="AguaVivaPath" parent="." instance=ExtResource("6_42pse")]
-position = Vector2(1476, 6447)
-
 [node name="plataform_movel_E" parent="." instance=ExtResource("9_byxn1")]
 position = Vector2(1333, 6701)
 move_speed = 5.0
 distance = 300
 move_horizontal = false
+
+[node name="agua_viva" parent="." instance=ExtResource("9_qfdyi")]
+position = Vector2(800.0615, 6717.7256)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://e4hpw57s0vlu"]
+[gd_scene load_steps=9 format=3 uid="uid://e4hpw57s0vlu"]
 
 [ext_resource type="PackedScene" uid="uid://buhegnsvwuv3f" path="res://scenes/Fase_litoral/parte_2/poluizao/poluizao.tscn" id="1_iejbd"]
 [ext_resource type="PackedScene" uid="uid://dscx8hbalv6vx" path="res://scenes/Fase_litoral/plataformas/plataform_movel_d.tscn" id="2_d5b30"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bb06kfdajvr6i" path="res://scenes/Fase_litoral/parte_2/pilar.tscn" id="4_1ps3k"]
 [ext_resource type="PackedScene" uid="uid://1dxj8pi1rv1n" path="res://scenes/Fase_litoral/parte_2/poluizao/poluizao_adm.tscn" id="5_17pks"]
 [ext_resource type="PackedScene" uid="uid://bqpavlnkcsfxl" path="res://scenes/Fase_litoral/parte_2/poluizao/atira_polu.tscn" id="6_lsimd"]
+[ext_resource type="AudioStream" uid="uid://bicsx4go6x2lf" path="res://assets/soundtracks/litoral/p1_background.mp3" id="7_gden0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lsimd"]
 size = Vector2(6337.5, 5244.5)
@@ -65,3 +66,20 @@ gravity = 400.0
 position = Vector2(-2282, -967)
 shape = SubResource("RectangleShape2D_lsimd")
 debug_color = Color(0.38255185, 0.49931693, 0.9285554, 0.41960785)
+
+[node name="boss_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_gden0")
+autoplay = true
+parameters/looping = true
+
+[node name="pilar4" parent="." instance=ExtResource("4_1ps3k")]
+position = Vector2(-888, 450)
+rotation = 1.5707964
+move_speed = 150.0
+flash_duration = 6.0
+
+[node name="pilar5" parent="." instance=ExtResource("4_1ps3k")]
+position = Vector2(-94, 450)
+rotation = 1.5707964
+move_speed = 150.0
+flash_duration = 6.0

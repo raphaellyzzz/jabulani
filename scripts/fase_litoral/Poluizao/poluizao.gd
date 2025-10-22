@@ -1,10 +1,10 @@
 extends Node2D
 
 @onready var _anim := $AnimatedSprite2D as AnimatedSprite2D
+
 var state
 func _ready() -> void:
 	pass
-	
 func _process(_delta: float) -> void:
 	Global.boss = true
 	_set_state()
