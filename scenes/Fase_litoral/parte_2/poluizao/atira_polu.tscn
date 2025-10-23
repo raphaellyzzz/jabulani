@@ -24,3 +24,4 @@ collision_mask = 33
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(-52, -1)
 shape = SubResource("RectangleShape2D_d6toe")
+debug_color = Color(0.8283299, 0.3448912, 0.51137626, 0.41960785)

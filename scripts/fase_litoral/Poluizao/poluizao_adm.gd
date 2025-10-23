@@ -3,12 +3,18 @@ extends Node2D
 var pilar = [0,1,2]
 var pilarP1 = 0
 var pilarP2 = 0
-
+var vida = 10
 func _ready() -> void:
 	pass
 
 func _process(_delta: float) -> void:
-	pass
+	if vida <= 0:
+		Global.morte_pilar = true
+		Global.adm = false
+		Global.olhos = false
+		await get_tree().create_timer(0.75).timeout
+		Global.morte = true
+		queue_free()
 
 func _on_timer_timeout() -> void:
 	Global.olhos = true
