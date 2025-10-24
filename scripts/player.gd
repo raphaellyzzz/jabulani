@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 250.0
+const JUMP_VELOCITY = -500.0
 var knockback_vector := Vector2.ZERO
 var direction
 var is_hurted := false
@@ -39,6 +39,11 @@ func _physics_process(delta: float) -> void:
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("pilar"):
 		take_damage(Vector2(0, -5000))
+	if body.is_in_group("inimigos"):
+		take_damage(Vector2(100, -100))
+	if body.is_in_group("projetil"):
+		body.queue_free()
+		take_damage(Vector2(-150, -100))
 	if player_life < 0:
 		queue_free()
 	else:

@@ -14,12 +14,14 @@ func _process(_delta: float) -> void:
 			$"../cabeca_adm".process_mode = Node.PROCESS_MODE_INHERIT
 func _set_state():
 	#ataque atira()
-	if !Global.adm and !Global.morte_adm:
+	if !Global.adm and !Global.morte_adm and !Global.ataque_lixo:
 		state = "idle"
 	if !Global.olhos and Global.adm and !Global.morte_adm: 
 		state = "idle_2"
 	if Global.olhos and Global.adm and !Global.morte_adm:
 		state = "ataque_pilar"
+	if Global.ataque_lixo and !Global.adm:
+		state = "ataque_adm"
 	if Global.morte_adm:
 		state = "morte_adm"
 		Global.morte_adm = false

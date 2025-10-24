@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://b6tv6bdyiw4pm"]
+[gd_scene load_steps=18 format=4 uid="uid://b6tv6bdyiw4pm"]
 
 [ext_resource type="PackedScene" uid="uid://b0g6fk3yxsmp8" path="res://scenes/player.tscn" id="1_d5xje"]
 [ext_resource type="Script" uid="uid://d4kxuo4awnrgi" path="res://scripts/fase_litoral/litoral_parte_1.gd" id="1_yqee5"]
@@ -6,8 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://defetn2tolysf" path="res://scenes/Fase_litoral/inimigos/peixe.tscn" id="4_qfdyi"]
 [ext_resource type="AudioStream" uid="uid://cjxbksxfa2frf" path="res://assets/soundtracks/litoral/musica_p1.mp3" id="5_42pse"]
 [ext_resource type="PackedScene" uid="uid://c8rly5yewdvax" path="res://scenes/Fase_litoral/plataformas/plataforma.tscn" id="5_qfdyi"]
-[ext_resource type="PackedScene" uid="uid://bf7u7sm6g1pyo" path="res://scenes/Fase_litoral/plataformas/plataforma_q.tscn" id="5_yqee5"]
+[ext_resource type="PackedScene" uid="uid://dscx8hbalv6vx" path="res://scenes/Fase_litoral/plataformas/plataform_movel_d.tscn" id="5_yqee5"]
+[ext_resource type="PackedScene" uid="uid://bf7u7sm6g1pyo" path="res://scenes/Fase_litoral/plataformas/plataforma_q.tscn" id="6_byxn1"]
 [ext_resource type="PackedScene" uid="uid://xnslvs1w3kgp" path="res://scenes/Fase_litoral/plataformas/plataform_movel_e.tscn" id="9_byxn1"]
+[ext_resource type="PackedScene" uid="uid://cdg77iws7oyfl" path="res://scenes/Coletaveis/moedas.tscn" id="9_fm2ik"]
 [ext_resource type="PackedScene" uid="uid://kwuyaoxauotc" path="res://scenes/Fase_litoral/inimigos/agua_viva.tscn" id="9_qfdyi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_77fcj"]
@@ -187,9 +189,6 @@ stream = ExtResource("5_42pse")
 autoplay = true
 parameters/looping = true
 
-[node name="peixe" parent="." instance=ExtResource("4_qfdyi")]
-position = Vector2(634.3185, 6717.1978)
-
 [node name="gravity" type="Area2D" parent="."]
 visible = false
 position = Vector2(2176, 1390)
@@ -203,22 +202,64 @@ shape = SubResource("RectangleShape2D_42pse")
 debug_color = Color(0.38255185, 0.49931693, 0.9285554, 0.41960785)
 
 [node name="player" parent="." instance=ExtResource("1_d5xje")]
-position = Vector2(132.83606, 6643.823)
+position = Vector2(97, 6653)
 
-[node name="plataform" parent="." instance=ExtResource("5_qfdyi")]
-position = Vector2(1646, 6559)
-
-[node name="plataform3" parent="." instance=ExtResource("5_qfdyi")]
-position = Vector2(1977, 6161)
-
-[node name="plataform2" parent="." instance=ExtResource("5_yqee5")]
-position = Vector2(1666, 6301)
-
-[node name="plataform_movel_E" parent="." instance=ExtResource("9_byxn1")]
-position = Vector2(1333, 6701)
-move_speed = 5.0
-distance = 300
+[node name="plataform_movel_D" parent="." instance=ExtResource("5_yqee5")]
+position = Vector2(434.67035, 6724.888)
+move_speed = 4.0
+distance = 500
 move_horizontal = false
 
+[node name="plataform_movel_D2" parent="." instance=ExtResource("5_yqee5")]
+position = Vector2(769, 6410)
+move_speed = 5.0
+
+[node name="plataform" parent="." instance=ExtResource("6_byxn1")]
+position = Vector2(1377, 6364)
+
+[node name="plataform2" parent="." instance=ExtResource("6_byxn1")]
+position = Vector2(1721, 6234)
+
+[node name="plataform3" parent="." instance=ExtResource("5_qfdyi")]
+position = Vector2(2054, 6379)
+
+[node name="plataform4" parent="." instance=ExtResource("5_qfdyi")]
+position = Vector2(2461, 6231)
+
+[node name="plataform5" parent="." instance=ExtResource("6_byxn1")]
+position = Vector2(2226, 6049)
+
+[node name="plataform6" parent="." instance=ExtResource("6_byxn1")]
+position = Vector2(2579, 5889)
+
+[node name="plataform7" parent="." instance=ExtResource("6_byxn1")]
+position = Vector2(2228, 5712)
+
+[node name="plataform_movel_E" parent="." instance=ExtResource("9_byxn1")]
+position = Vector2(1818, 5573)
+
+[node name="moeda" parent="." instance=ExtResource("9_fm2ik")]
+position = Vector2(2227, 5450)
+
+[node name="peixe" parent="." instance=ExtResource("4_qfdyi")]
+position = Vector2(3032, 6148)
+
+[node name="plataform9" parent="." instance=ExtResource("6_byxn1")]
+position = Vector2(1386, 5685)
+
 [node name="agua_viva" parent="." instance=ExtResource("9_qfdyi")]
-position = Vector2(800.0615, 6717.7256)
+position = Vector2(831.73987, 5681.322)
+
+[node name="plataform_movel_E2" parent="." instance=ExtResource("9_byxn1")]
+position = Vector2(1070.6786, 5805.386)
+move_speed = 5.0
+distance = 450
+
+[node name="plataform10" parent="." instance=ExtResource("6_byxn1")]
+position = Vector2(216.0133, 5635.372)
+
+[node name="plataform11" parent="." instance=ExtResource("5_qfdyi")]
+position = Vector2(-37, 5465)
+
+[node name="moeda2" parent="." instance=ExtResource("9_fm2ik")]
+position = Vector2(221.99359, 5754.508)

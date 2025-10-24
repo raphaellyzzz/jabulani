@@ -65,8 +65,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xny7j"]
-radius = 27.0
-height = 54.0
+radius = 29.0
+height = 58.0
 
 [node name="peixe" type="CharacterBody2D" groups=["inimigos"]]
 collision_layer = 4
@@ -87,7 +87,7 @@ autoplay = "idle"
 collision_mask = 32
 
 [node name="colliosion" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(-3, -2)
+position = Vector2(-4, 0)
 shape = SubResource("CapsuleShape2D_xny7j")
 debug_color = Color(0.8958556, 0.22780389, 0.564401, 0.41960785)
 
