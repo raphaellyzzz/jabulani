@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://be565oo6n812d"]
+
+[ext_resource type="PackedScene" uid="uid://cj43ru45hclm3" path="res://scenes/Fase_litoral/inimigos/hitbox.tscn" id="1_1q2a5"]
+[ext_resource type="Script" uid="uid://dekabjitqjot4" path="res://scripts/fase_litoral/inimigos/lixo.gd" id="1_ns3nb"]
+
+[sub_resource type="Gradient" id="Gradient_ns3nb"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5adtb"]
+gradient = SubResource("Gradient_ns3nb")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1q2a5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ns3nb"]
+radius = 32.06244
+
+[node name="Lixo" type="CharacterBody2D" groups=["projetil"]]
+collision_layer = 20
+collision_mask = 33
+script = ExtResource("1_ns3nb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_5adtb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1q2a5")
+
+[node name="Hitbox" parent="." instance=ExtResource("1_1q2a5")]
+collision_layer = 20
+collision_mask = 33
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_ns3nb")
+debug_color = Color(0.90488017, 0.2400051, 0.48678857, 0.41960785)
