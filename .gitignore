@@ -2,3 +2,10 @@
 .godot/
 /android/
 .import/
+
+# arquivos temp do krita
+*.kra
+*.kra~
+
+# arquivos temp de png
+*.png~
