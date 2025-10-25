@@ -1,11 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://dscx8hbalv6vx"]
 
 [ext_resource type="Script" uid="uid://2md5y000l443" path="res://scripts/plataforms/plataform_movel_d.gd" id="1_1br05"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_e74ef"]
+[ext_resource type="Texture2D" uid="uid://jp5a4mwhewp0" path="res://assets/Tileset mapa/plataforma.png" id="2_7wxca"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4re3"]
-size = Vector2(179, 89)
+size = Vector2(129, 65)
 
 [node name="plataform_movel_D" type="Node2D"]
 script = ExtResource("1_1br05")
@@ -16,8 +15,8 @@ collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="plataform"]
 position = Vector2(-0.4999962, 0)
-scale = Vector2(179, 88)
-texture = SubResource("PlaceholderTexture2D_e74ef")
+scale = Vector2(2, 2)
+texture = ExtResource("2_7wxca")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="plataform"]
 position = Vector2(-0.5, -0.5)

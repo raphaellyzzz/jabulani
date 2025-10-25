@@ -3,6 +3,7 @@ extends Node2D
 const dura_temp := 1.0
 
 @onready var platform := $plataform as AnimatableBody2D
+@onready var sprite := $plataform/Sprite2D
 @export var move_speed := 3.0
 @export var distance := 192
 @export var move_horizontal := true
@@ -31,16 +32,16 @@ func _physics_process(_delta: float) -> void:
 		flip_accumulator += _delta
 		if flip_accumulator >= flash_frequency:
 			if is_flipped:
-				$plataform/Sprite2D.scale.x = abs($plataform/Sprite2D.scale.x)
+				sprite.scale.x = abs(sprite.scale.x)
 				is_flipped = false
 			else:
-				$plataform/Sprite2D.scale.x = -abs($plataform/Sprite2D.scale.x)
+				sprite.scale.x = -abs(sprite.scale.x)
 				is_flipped = true
 			flip_accumulator = 0.0
 		
 		if flash_timer <= 0:
 			is_flashing = false
-			$plataform/Sprite2D.scale.x = abs($plataform/Sprite2D.scale.x)
+			sprite.scale.x = abs(sprite.scale.x)
 			is_flipped = false
 
 func start_flash():

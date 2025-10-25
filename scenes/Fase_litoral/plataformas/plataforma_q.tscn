@@ -1,14 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bf7u7sm6g1pyo"]
+[gd_scene load_steps=7 format=3 uid="uid://bf7u7sm6g1pyo"]
 
 [ext_resource type="Script" uid="uid://cbmfylk0chaiu" path="res://scripts/plataforms/plataforma_q.gd" id="1_iq3w5"]
-
-[sub_resource type="Gradient" id="Gradient_iq3w5"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_p4rki"]
-gradient = SubResource("Gradient_iq3w5")
+[ext_resource type="Texture2D" uid="uid://jp5a4mwhewp0" path="res://assets/Tileset mapa/plataforma.png" id="2_p4rki"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4re3"]
-size = Vector2(179, 89)
+size = Vector2(127, 66)
 
 [sub_resource type="Animation" id="Animation_iq3w5"]
 length = 0.001
@@ -38,7 +34,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(4, 0), Vector2(0, 0), Vector2(-4, 0), Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p4rki"]
@@ -53,11 +49,11 @@ collision_mask = 0
 script = ExtResource("1_iq3w5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(2.812501, 1.4140633)
-texture = SubResource("GradientTexture2D_p4rki")
+scale = Vector2(2, 2)
+texture = ExtResource("2_p4rki")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -0.5)
+position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_k4re3")
 one_way_collision = true
 

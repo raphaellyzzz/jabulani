@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://b6tv6bdyiw4pm"]
+[gd_scene load_steps=30 format=4 uid="uid://b6tv6bdyiw4pm"]
 
 [ext_resource type="PackedScene" uid="uid://b0g6fk3yxsmp8" path="res://scenes/player.tscn" id="1_d5xje"]
 [ext_resource type="Script" uid="uid://d4kxuo4awnrgi" path="res://scripts/fase_litoral/litoral_parte_1.gd" id="1_yqee5"]
@@ -11,6 +11,18 @@
 [ext_resource type="PackedScene" uid="uid://xnslvs1w3kgp" path="res://scenes/Fase_litoral/plataformas/plataform_movel_e.tscn" id="9_byxn1"]
 [ext_resource type="PackedScene" uid="uid://cdg77iws7oyfl" path="res://scenes/Coletaveis/moedas.tscn" id="9_fm2ik"]
 [ext_resource type="PackedScene" uid="uid://kwuyaoxauotc" path="res://scenes/Fase_litoral/inimigos/agua_viva.tscn" id="9_qfdyi"]
+[ext_resource type="Texture2D" uid="uid://cervyw3arvspy" path="res://assets/Tileset mapa/Background/Litoral_Down/background_camada_-07.png" id="12_ud36y"]
+[ext_resource type="Texture2D" uid="uid://cr6op4bmw320x" path="res://assets/Tileset mapa/Background/Litoral_Down/background_camada_-06.png" id="13_udve2"]
+[ext_resource type="Texture2D" uid="uid://c0twundumr2g2" path="res://assets/Tileset mapa/Background/Litoral_Down/background_camada_-05.png" id="14_6yult"]
+[ext_resource type="Texture2D" uid="uid://bbiw8u63we5h0" path="res://assets/Tileset mapa/Background/Litoral_Down/background_camada_-04.png" id="15_rr6r7"]
+[ext_resource type="Texture2D" uid="uid://dlfagyu3xnyhk" path="res://assets/Tileset mapa/Background/Litoral_Down/Elements/pedra_09.png" id="15_xkirp"]
+[ext_resource type="Texture2D" uid="uid://bovur65hj3shj" path="res://assets/Tileset mapa/Background/Litoral_Down/background_camada_-03.png" id="16_xkirp"]
+[ext_resource type="Texture2D" uid="uid://dnc3g7i801156" path="res://assets/Tileset mapa/Background/Litoral_Down/Elements/pedra_10.png" id="17_lkx0k"]
+[ext_resource type="Texture2D" uid="uid://b7kbhl4u3oa0e" path="res://assets/Tileset mapa/Background/Litoral_Down/background_camada_-02.png" id="17_umm2r"]
+[ext_resource type="Texture2D" uid="uid://ctps5yeht27fw" path="res://assets/Tileset mapa/Background/Litoral_Down/background_camada_-01.png" id="18_lkx0k"]
+[ext_resource type="Texture2D" uid="uid://br4ibvqkuuvnd" path="res://assets/Tileset mapa/Background/Litoral_Down/Elements/pedra_08.png" id="19_6d6fw"]
+[ext_resource type="Texture2D" uid="uid://dqkmuq07mvv72" path="res://assets/Tileset mapa/Background/Litoral_Down/background_camada_01.png" id="19_wds81"]
+[ext_resource type="Texture2D" uid="uid://b0w2q8273x41l" path="res://assets/Tileset mapa/Background/Litoral_Down/background_camada_00.png" id="20_6d6fw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_77fcj"]
 size = Vector2(362, 11614)
@@ -203,6 +215,8 @@ debug_color = Color(0.38255185, 0.49931693, 0.9285554, 0.41960785)
 
 [node name="player" parent="." instance=ExtResource("1_d5xje")]
 position = Vector2(97, 6653)
+jump_height = 180
+max_time_to_peak = 1.2
 
 [node name="plataform_movel_D" parent="." instance=ExtResource("5_yqee5")]
 position = Vector2(434.67035, 6724.888)
@@ -263,3 +277,112 @@ position = Vector2(-37, 5465)
 
 [node name="moeda2" parent="." instance=ExtResource("9_fm2ik")]
 position = Vector2(221.99359, 5754.508)
+
+[node name="bg" type="ParallaxBackground" parent="."]
+
+[node name="20" type="ParallaxLayer" parent="bg"]
+position = Vector2(285, 6167)
+motion_mirroring = Vector2(1331, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="bg/20"]
+position = Vector2(-457.00003, -6094)
+scale = Vector2(1.7355468, 6.6349607)
+texture = ExtResource("12_ud36y")
+centered = false
+
+[node name="8" type="ParallaxLayer" parent="bg"]
+position = Vector2(285, 6300)
+motion_mirroring = Vector2(1331, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="bg/8"]
+position = Vector2(11, -532)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("13_udve2")
+centered = false
+
+[node name="7" type="ParallaxLayer" parent="bg"]
+position = Vector2(287, 6648)
+motion_mirroring = Vector2(1331, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="bg/7"]
+position = Vector2(-10, -97)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("14_6yult")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="bg/7"]
+position = Vector2(532, -102)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("15_xkirp")
+centered = false
+
+[node name="6" type="ParallaxLayer" parent="bg"]
+position = Vector2(287, 6571)
+motion_mirroring = Vector2(1331, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="bg/6"]
+position = Vector2(-10, 4)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("15_rr6r7")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="bg/6"]
+position = Vector2(-330, 12)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("17_lkx0k")
+centered = false
+
+[node name="5" type="ParallaxLayer" parent="bg"]
+position = Vector2(287, 6571)
+motion_mirroring = Vector2(1331, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="bg/5"]
+position = Vector2(-10, 28)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("16_xkirp")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="bg/5"]
+position = Vector2(163, 60)
+texture = ExtResource("19_6d6fw")
+
+[node name="4" type="ParallaxLayer" parent="bg"]
+position = Vector2(287, 6571)
+motion_mirroring = Vector2(1331, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="bg/4"]
+position = Vector2(-10, 44)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("17_umm2r")
+centered = false
+
+[node name="3" type="ParallaxLayer" parent="bg"]
+visible = false
+position = Vector2(287, 6571)
+motion_mirroring = Vector2(1331, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="bg/3"]
+position = Vector2(-6, 92)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("18_lkx0k")
+centered = false
+
+[node name="2" type="ParallaxLayer" parent="bg"]
+position = Vector2(285, 6167)
+motion_mirroring = Vector2(1331, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="bg/2"]
+position = Vector2(-450.00003, -6096.0005)
+scale = Vector2(2, 1.3)
+texture = ExtResource("19_wds81")
+centered = false
+
+[node name="1" type="ParallaxLayer" parent="bg"]
+position = Vector2(285, 6167)
+motion_mirroring = Vector2(1331, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="bg/1"]
+position = Vector2(0, 536)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("20_6d6fw")
+centered = false

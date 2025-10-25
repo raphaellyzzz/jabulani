@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var anim = $AnimatedSprite2D
 var vida = 3
+var nome := "inimigos"
 const SPEED = 00.0
 var direction := -1
 func _process(_delta: float) -> void:

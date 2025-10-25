@@ -3,6 +3,7 @@ extends CharacterBody2D
 var vida = 3
 const SPEED = 400.0
 var direction := -1
+var nome := "inimigos"
 @onready var wall_detector := $wall_detector as RayCast2D
 @onready var anim := $AnimatedSprite2D as AnimatedSprite2D
 func _process(_delta: float) -> void:

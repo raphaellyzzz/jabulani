@@ -32,5 +32,5 @@ func _on_respawn_timer_timeout() -> void:
 	global_position = respawn_position
 	if is_triggered:
 		var spawn_tween = create_tween().set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_IN_OUT)
-		spawn_tween.tween_property($Sprite2D, "scale", Vector2(2.813,1.414), 0.2).from(Vector2(0,0))
+		spawn_tween.tween_property($Sprite2D, "scale", Vector2(2,2), 0.2).from(Vector2(0,0))
 	is_triggered = false

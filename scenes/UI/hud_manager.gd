@@ -4,8 +4,6 @@ extends Control
 @onready var vidas: Label = $MarginContainer/status_coluna/vidas as Label
 
 func _ready():
-	contador_moedas.text = str("%04d" % Global.moedas)
 	contador_pontos.text = str("%05d" % Global.pontos)
 func _process(_delta: float) -> void:
-	contador_moedas.text = str("%04d" % Global.moedas)
 	contador_pontos.text = str("%05d" % Global.pontos)
