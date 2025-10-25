@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var vida = 2
+var vida = 3
 const SPEED = 400.0
 var direction := -1
 @onready var wall_detector := $wall_detector as RayCast2D

@@ -1,5 +1,6 @@
 extends CharacterBody2D
 var vida = 10
+var nome = "boss"
 const LIXO = preload("uid://be565oo6n812d")
 func _process(_delta: float) -> void:
 	if vida <= 0:

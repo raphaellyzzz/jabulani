@@ -4,6 +4,7 @@ var pilar = [0,1,2]
 var pilarP1 = 0
 var pilarP2 = 0
 var vida = 10
+var nome = "boss"
 func _ready() -> void:
 	pass
 

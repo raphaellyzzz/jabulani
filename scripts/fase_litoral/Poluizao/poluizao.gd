@@ -6,6 +6,7 @@ var state
 func _ready() -> void:
 	pass
 func _process(_delta: float) -> void:
+	Global.anim = _anim
 	Global.boss = true
 	_set_state()
 	if Global.olhos and Global.adm:
