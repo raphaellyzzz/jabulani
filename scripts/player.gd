@@ -44,8 +44,8 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("projetil"):
 		body.queue_free()
 		take_damage(Vector2(-150, -100))
-	if player_life < 0:
-		queue_free()
+	if player_life <= 0:
+		_set_state()
 	else:
 		if ray_d.is_colliding():
 			take_damage(Vector2(-1200, -1200))
@@ -60,6 +60,14 @@ func ataque():
 	for area in porradao:
 		var parent = area.get_parent()
 		parent.vida -= 1
+		if parent.nome == "boss":
+			Global.anim.modulate = Color(1,0,0,1)
+			await get_tree().create_timer(0.02).timeout
+			Global.anim.modulate = Color(1,1,1,1)
+		else:
+			parent.anim.modulate = Color(1,0,0,1)
+			await get_tree().create_timer(0.05).timeout
+			parent.anim.modulate = Color(1,1,1,1)
 	atacando = true
 	anim.play("ataque")
 func take_damage(knockback_force := Vector2.ZERO, duration := 0.25):
@@ -75,18 +83,24 @@ func take_damage(knockback_force := Vector2.ZERO, duration := 0.25):
 	is_hurted = false
 		
 func _set_state():
-	if !atacando:
-		var state = "idle-pre-ataque"
-		if Global.boss:
-			state = "idle-pos-ataque"
-		if !is_on_floor():
-			state = "salto"
-		elif direction != 0 and is_on_floor():
-			state = "correndo"
-		if is_hurted:
-			state = "hitado"
-		if anim.name != state:
-			anim.play(state)
+	if player_life <= 0:
+		anim.play("morte")
+		await get_tree().create_timer(1.0).timeout
+		queue_free()
+		
+	else:
+		if !atacando:
+			var state = "idle-pre-ataque"
+			if Global.boss:
+				state = "idle-pos-ataque"
+			if !is_on_floor():
+				state = "salto"
+			elif direction != 0 and is_on_floor():
+				state = "correndo"
+			if is_hurted:
+				state = "hitado"
+			if anim.name != state:
+				anim.play(state)
 
 func _on_anim_animation_finished() -> void:
 	atacando = false

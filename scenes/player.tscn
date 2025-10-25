@@ -379,7 +379,7 @@ shape = SubResource("RectangleShape2D_u8vuu")
 
 [node name="anim" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2dvfe")
-animation = &"agachar"
+animation = &"idle-pre-ataque"
 flip_h = true
 
 [node name="Camera2D" type="Camera2D" parent="."]

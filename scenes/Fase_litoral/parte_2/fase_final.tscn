@@ -60,7 +60,7 @@ visible = false
 position = Vector2(2176, 1390)
 monitorable = false
 gravity_space_override = 3
-gravity = 400.0
+gravity = 900.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="gravity"]
 position = Vector2(-2282, -967)
